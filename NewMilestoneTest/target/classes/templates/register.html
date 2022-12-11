@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Genesis</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <form action="#" th:action="@{doRegistration}" th:object="${registerModel}" method="post">
+            <div style="align-items: center;">
+                <!-- First Name -->
+                <div style="margin-left: 40%; margin-right: 40%; margin-top: 30px;">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" th:field="*{firstName}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name Error</h5>
+                    <div class="invalid-feedback">
+                    Valid first name is required.
+                    </div>
+                </div>
+                <!-- Last Name -->
+                <div style="margin-left: 40%; margin-right: 40%; margin-top: 30px;">
+                    <label for="firstName" class="form-label">Last Name</label>
+                    <input type="text" th:field="*{lastName}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</h5>
+                    <div class="invalid-feedback">
+                    Valid first name is required.
+                    </div>
+                </div>
+                <!-- Email -->
+                <div style="margin-left: 40%; margin-right: 40%; margin-top: 30px;">
+                    <label for="firstName" class="form-label">Email</label>
+                    <input type="text" th:field="*{email}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</h5>
+                    <div class="invalid-feedback">
+                    Valid first name is required.
+                    </div>
+                </div>
+                <!-- Phone Number -->
+                <div style="margin-left: 40%; margin-right: 40%; margin-top: 30px;">
+                    <label for="firstName" class="form-label">Phone Number</label>
+                    <input type="text" th:field="*{phoneNumber}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Phone Number Error</h5>
+                    <div class="invalid-feedback">
+                    Valid first name is required.
+                    </div>
+                </div>
+                <!--  Username -->
+                <div style="margin-left: 40%; margin-right: 40%; margin-top: 30px;">
+                    <label for="firstName" class="form-label">Username</label>
+                    <input type="text" th:field="*{username}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</h5>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('username')}" th:text="${err}" class="error" />
+                    </ul>
+                </div>
+                <!-- Password -->
+                <div style="margin-left: 40%; margin-right: 40%; margin-top: 30px;">
+                    <label for="firstName" class="form-label">Password</label>
+                    <input type="text" th:field="*{password}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</h5>
+                    <div class="invalid-feedback">
+                    Valid first name is required.
+                    </div>
+                </div>
+                <input type="submit" value="Submit">	
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>				
+            </div>
+        </form>
+    </div>
+</body>
+</html>

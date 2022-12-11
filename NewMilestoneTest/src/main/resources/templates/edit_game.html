@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+    <div layout:fragment="content">
+        <form action="#" th:action="@{doEditProduct}" th:object="${productModel}" method="post">
+            <div style="align-items: center;">
+                <div style="margin-left: 40%; margin-right: 40%; margin-top: 30px;">
+                    <label class="form-label">Game ID</label>
+                    <input type="text" th:field="*{id}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Game ID Error</h5>
+                    <div class="invalid-feedback">
+                    Valid Game Title is required.
+                    </div>
+                    <label class="form-label">Game Title</label>
+                    <input type="text" th:field="*{productName}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">Game Title Error</h5>
+                    <div class="invalid-feedback">
+                    Valid Game Title is required.
+                    </div>
+                    <label class="form-label">Game Title</label>
+                    <input type="text" th:field="*{price}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Game Title Error</h5>
+                    <div class="invalid-feedback">
+                    Valid Game Title is required.
+                    </div>
+                    <label class="form-label">Game Title</label>
+                    <input type="text" th:field="*{imageURL}">
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('imageURL')}" th:errors="*{imageURL}">Game Title Error</h5>
+                    <div class="invalid-feedback">
+                    Valid Game Title is required.
+                    </div>
+                </div>
+                <input type="submit" value="Submit">					
+            </div>
+        </form> 
+        <br>
+        <br>
+        <table style="width:50%">
+			<form><button formaction="/admin/">Back to Admin Menu</button></form>
+			<thead>
+				<tr>
+					<th style="text-align:center">Game ID</th>
+					<th style="text-align:center">Game Title</th>
+					<th style="text-align:center">Game Price</th>
+				</tr>
+			</thead>
+			<tbody>
+    				<tr th:if="${games.empty}">
+    					<td style="text-align:center" colspan="4"> No Orders Available</td>
+    				</tr>
+    				<tr th:each="game : ${games}">
+    					<td style="text-align:center"><h5 th:text="${game.id}"></h5></td>
+    					<td style="text-align:center"><h5 th:text="${game.productName}"></h5></td>
+    					<td style="text-align:center"><h5 th:text="${game.price}"></h5></td>
+    				</tr>
+			</tbody>
+		</table>
+        <br>
+        <br>
+
+	</div>
+
+
+</body>
+</html>
