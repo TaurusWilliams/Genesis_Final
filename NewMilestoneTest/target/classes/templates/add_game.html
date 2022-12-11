@@ -21,7 +21,7 @@
 				<div style="margin-left: 40%; margin-right: 40%; margin-top: 30px;">
                     <label class="form-label">Price</label>
                     <input type="text" th:field="*{price}">
-                    <h5 style="color:red;" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Game Title Error</h5>
+                    <h5 style="color:red;" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Game Price Error</h5>
                     <div class="invalid-feedback">
                     Valid Game Title is required.
                     </div>

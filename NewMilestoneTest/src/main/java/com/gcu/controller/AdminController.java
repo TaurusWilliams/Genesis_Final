@@ -55,7 +55,7 @@ public class AdminController {
 	}
 
 	/**
-	 * This is the edit game page mapping where it takes the user to eddit
+	 * This is the edit game page mapping where it takes the user to edit
 	 * a game in the products
 	 * @param model
 	 * @return
