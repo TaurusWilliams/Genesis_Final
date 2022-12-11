@@ -3,7 +3,10 @@ package com.gcu.data.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
+/**
+ * This is the product entity class which takes data from the 
+ * business layer and transmits it to the data access layer
+ */
 @Document(collection="products")
 public class ProductEntity {
     @Id
@@ -11,7 +14,6 @@ public class ProductEntity {
     String productName;
     float price;
     String imageURL;
-    
     
     
     public ProductEntity() {
