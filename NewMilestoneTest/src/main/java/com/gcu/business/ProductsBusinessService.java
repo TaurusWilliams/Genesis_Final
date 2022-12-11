@@ -7,7 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.gcu.data.OrderDataSevice;
+import com.gcu.data.ProductsDataSevice;
 import com.gcu.data.entity.ProductEntity;
 import com.gcu.model.ProductModel;
 
@@ -16,7 +16,7 @@ import com.gcu.model.ProductModel;
  */
 public class ProductsBusinessService implements ProductsBusinessInterface {
     @Autowired
-    OrderDataSevice service;
+    ProductsDataSevice service;
     
 	@Override
 	public void init() {
@@ -72,12 +72,19 @@ public class ProductsBusinessService implements ProductsBusinessInterface {
 		service.create(productEntity);
 	}
 
+	/**
+	 * This method uses the OrderDataSevice's create method to replase a product at the spesified ID. 
+	 */
 	@Override
 	public void edit(@Valid ProductModel productModel) {
 		ProductEntity productEntity = new ProductEntity(productModel.getId(), productModel.getProductName(),productModel.getPrice(),productModel.getImageURL());
 		service.create(productEntity);
 	}
 
+	/**
+	 * this method takes a user model, copies it to a user entity then passes it into the OrderDataSevice's delete method to 
+	 * delete it from the database.
+	 */
 	@Override
 	public void remove(@Valid ProductModel productModel) {
 		ProductEntity productEntity = new ProductEntity(productModel.getId(), productModel.getProductName(),productModel.getPrice(),productModel.getImageURL());
